@@ -21,11 +21,15 @@
 	var pluses = /\+/g;
 
 	function encode(s) {
-		return config.raw ? s : encodeURIComponent(s);
+		try {
+			return config.raw ? s : encodeURIComponent(s);
+		} catch(e) {}
 	}
 
 	function decode(s) {
-		return config.raw ? s : decodeURIComponent(s);
+		try {
+			return config.raw ? s : decodeURIComponent(s);
+		} catch(e) {}
 	}
 
 	function stringifyCookieValue(value) {
